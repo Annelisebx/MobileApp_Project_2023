@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/calm_shiba"
         android:layout_width="266dp"
         android:layout_height="304dp"
         app:srcCompat="@drawable/calm_shiba"
@@ -40,23 +40,35 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/angry_shiba"
+        android:layout_width="266dp"
+        android:layout_height="304dp"
+        app:srcCompat="@drawable/angry_shiba"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/food_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="displayToastMsg"
+        android:onClick="displayFoodMsg"
         android:text="Food"
         app:layout_constraintLeft_toRightOf="@id/touch_button"
-        app:layout_constraintTop_toTopOf="@id/touch_button" />
+        app:layout_constraintTop_toTopOf="@id/touch_button"
+        app:layout_constraintTop_toBottomOf="@id/my_name"/>
 
     <Button
         android:id="@+id/touch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="displayToastMsg"
+        android:onClick="displayTouchMsg"
         android:text="Touch"
         app:layout_constraintRight_toLeftOf="@id/food_button"
-        app:layout_constraintBottom_toBottomOf="@id/food_button" />
+        app:layout_constraintBottom_toBottomOf="@id/food_button"
+        app:layout_constraintTop_toBottomOf="@id/my_name"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

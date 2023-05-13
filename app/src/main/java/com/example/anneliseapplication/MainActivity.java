@@ -8,51 +8,61 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button food_button;
-    Button touch_button;
-    ImageView iv;
-    int[] images ={R.drawable.angry_shiba,R.drawable.calm_shiba};
+    Button inc_button;
+    Button dec_button;
+    Button reset_button;
+    TextView count_display;
 
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iv=(ImageView) findViewById(R.id.angry_shiba);
-        touch_button=(Button) findViewById(R.id.touch_button);
-        food_button=(Button) findViewById(R.id.food_button);
+        inc_button=findViewById(R.id.inc_button);
+        dec_button=findViewById(R.id.dec_button);
+        reset_button=findViewById(R.id.reset_button);
+        count_display=findViewById(R.id.counter);
 
-        touch_button.setOnClickListener(new View.OnClickListener() {
+        inc_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv.setImageResource(images[0]);
-                toastMsg("Bark :(");
+                count ++;
+                count_display.setText("" + count);
+                toastMsg("Current count: " + count +" Previous Count: " + (count-1));
             }
         });
 
-        food_button.setOnClickListener(new View.OnClickListener() {
+        dec_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv.setImageResource(images[1]);
-                toastMsg("Yummy :)");
+                if (count<=0) count=0;
+                else
+                    count--;
+                count_display.setText("" + count);
+                toastMsg("Current count: " + count +" Previous Count: " + (count+1));
+            }
+        });
+
+        reset_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int count_prev = count;
+                count=0;
+
+                count_display.setText("" + count);
+                toastMsg("Current count: " + count +" Previous Count: " + (count_prev));
             }
         });
     }
     public void toastMsg(String text) {
         Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
         toast.show();
-    }
-
-    public void displayFoodMsg(View view) {
-        toastMsg("Yummy :)");
-    }
-
-    public void displayTouchMsg(View view) {
-        toastMsg("Bark :(");
     }
 
 

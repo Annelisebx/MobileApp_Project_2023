@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">AnneliseApplication</string>
     <string name="my_name">Annelise</string>
-    <string name="welcome_message">Welcome to my app!</string>
+    <string name="counter">0</string>
 </resources>
